@@ -1,0 +1,8 @@
+if(i < 100 && i > 10)
+{
+... //number is between 10 and 100.
+}
+else
+{
+... //else
+}

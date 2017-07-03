@@ -7,4 +7,3 @@ gala
 -voir si on eut faire qu'elle se personnalise toute seule...
 
 creer fonctions :
-

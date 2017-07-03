@@ -36,6 +36,7 @@ while true ; do
 
 	 echo "";
 	 echo -n "@$name <{ ";read rep ##### INPUT
+
 	 echo $rep > $requestfile ;
 
 	 ### comptage de mots
