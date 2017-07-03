@@ -1,0 +1,25 @@
+#!/bin/bash
+### newmemo
+clear;
+echo "delete a memo";
+echo "-----------------------";
+
+### setup
+bool=0;
+
+### start
+echo "choose a language :";
+ls -m db/ ;
+echo -n "}>"; read nom;
+
+echo "memos list :"
+ls -m db/$nom ;
+echo "memo name :";
+echo -n "}>"; read memo;
+
+echo "Do you want to delete this memo ? (y/n)";
+echo -n "}>"; read answer;
+if [ $answer = "y" ] ; then
+	echo "memo deleted";
+	rm db/$nom/$memo ;
+fi

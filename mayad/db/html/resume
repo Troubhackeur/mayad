@@ -1,0 +1,34 @@
+HTML
+type : interprete
+
+<head></head> 			head
+<body></body>			body
+<title></title>			title
+<script xxxxxx ></script>	script
+<header></header>		header
+<nav></nav>			navigation
+<article></article>		article
+<footer></footer>		footer
+<media></media>			media
+<pre></pre> 			preformated text
+<hl></hl> 			headline
+<h1></h1> 			biggest title
+<h6></h6> 			smallest title
+<b></b> 			bold text
+<i></i> 			italic text
+<p align="left"></p> 		paragraphe align to the left
+<img src="url.img" alt="dn" />  image & description
+<cite></cite> 			citation
+<em></em>			emphasis (bold or italic)
+<tt></tt>
+<strong></strong> 		strong text
+<font size="1"></font>		size 1 to 7
+<font color="green"></font>	color
+<a href="index.html"></a>	link
+<span class="name"><span>	create class .name
+<div id="name"></div>		create div #name
+<blockquote></blockquote>	increment text 
+<ul></ul>			unordered list
+<ol></ol>			ordered list
+<il></il>			item
+<table></table>     table

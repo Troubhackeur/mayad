@@ -1,0 +1,10 @@
+#### IF
+
+if cmd_1 ; then
+	cmd_2
+
+elif cmd_3 ; then
+	cmd 4
+else
+	cmd_5
+fi

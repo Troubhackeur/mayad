@@ -1,0 +1,16 @@
+### file open & close
+$monfichier = fopen('compteur.txt', 'r+');
+fclose($monfichier);
+
+
+### modes d'ouvertures :
+r 		lecture seule
+r+ 		lecture & écriture
+a 		écriture seule (créé si inexistant)
+a+ 		lecture, écriture, création automatique ou texte rajouté a la fin
+
+###
+
+$ligne = fgets($monfichier); 		lit la première ligne du fichier
+fputs($monfichier, 'le texte');		écrit le texte dans $monfichier
+fseek($monfichier, 0);			place le curseur au début

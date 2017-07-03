@@ -1,0 +1,4 @@
+### while
+
+while ($variable == true){	### cmd
+}

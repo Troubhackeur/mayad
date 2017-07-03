@@ -1,0 +1,6 @@
+#!/bin/bash
+### listprog
+clear;
+echo "Language list";
+echo "-----------------------";
+ls -1 db/ ;

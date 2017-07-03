@@ -1,0 +1,7 @@
+perl ### if
+
+if ($reponse eq "y")
+{
+	# cmd
+}
+

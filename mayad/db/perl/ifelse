@@ -1,0 +1,11 @@
+### condition
+
+if ($reponse eq "y")
+{
+	# cmd
+}
+else
+{
+	# cmd	
+}
+

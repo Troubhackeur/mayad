@@ -1,0 +1,9 @@
+#!/bin/bash
+### launch medusa
+clear;
+
+### setup
+
+### start
+./bibliperl/imedusa.pl
+	

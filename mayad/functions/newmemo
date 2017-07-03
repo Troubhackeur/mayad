@@ -1,0 +1,29 @@
+#!/bin/bash
+### newmemo
+clear;
+echo "New memo";
+echo "-----------------------";
+
+### setup
+bool=0;
+
+### start
+echo "choose a language :";
+ls -m db/ ;
+echo -n "}>"; read nom;
+
+echo "memos list :"
+ls -m db/$nom ;
+echo "new memo name :";
+echo -n "}>"; read memo;
+
+echo "type the new memo and finish with XXX on a line";
+while [ $bool = 0 ] ; do
+        read line;
+	if [ $line = "XXX" ] ; then
+		echo "new memo saved";
+		bool=1;
+	else
+		echo $line >> db/$nom/$memo ;
+	fi 
+done

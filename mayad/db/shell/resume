@@ -1,0 +1,66 @@
+SHELL
+type:interprété
+shebang: #!/bin/sh
+
+########
+n'importe quelle chaine 	 *
+n'importe quel caract�re	 ?
+caract�res l,i,s,t,e 		 [liste]
+caract�res b,c,d,e 		 [b-e]
+tout sauf b et c		 [^bc]
+caract�re d'�chappement 	 \
+d�claration de variable 	 variable=valeur
+d�claration de tableau 		 tableau[rang]=valeur
+remplace par le contenu 	 ${variable}
+remplace par la sortie 		 $(commande)
+remplace par le resultat 	 $((1 + $variable))
+
+########
+
+exit valeur 			termine le script shell en renvoyant la valeur
+echo -n "hello world" 		ecrit hello world sans aller a la ligne
+exec commande			remplace le script shell en cours par la cmd
+source script			interprète le script dans le shell en cours
+export variable 		transfère la variable dans l'environnement
+env 				affiche le contenu de l'environnement
+set				affiche les variables du shell et de l'environnement
+unset variable 			efface une variable
+shift n 			décale les arguments en ligne de commande de n
+########
+commande | commande 		sortie standard injectée dans l'entrée suivante
+commande ; commande 		executions séquentielles
+commande & commande 		executions parallèles
+commande && commande 		executions dépendantes
+commande || commande		executions alternatives
+{ lites de commandes } 		regroupement de commandes
+( liste de commandes ) 		sous-shell
+
+######## comparaisons
+
+valeurs numériques:
+-eq 			�gal a
+-ne 			différent de
+-lt(-le)		inférieur (ou égal) à
+-gt(-ge)		supérieur (ou égal) à
+
+test sur les chaînes :
+-n 			longueur non nulle
+-z 			longueur nulle
+
+comparaisons de chaînes:
+=, !=, <, >
+
+test sur les fichiers : 
+-a 			existence du fichier
+-d 			repertoire
+-f 			fichier normal
+-s 			taille non nulle
+-h 			lien symbolique
+-r 			peut être lu
+-w 			peut être écrit
+-x 			peut être éxécuté
+
+comparaisons de fichiers:
+-ef 			même fichier physique que
+-nt			modifié plsu récemment que
+-ot 			modifié plus anciennement que

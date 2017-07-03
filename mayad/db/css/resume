@@ -1,0 +1,57 @@
+CSS
+type : interprete
+insertion : <link href="style.css" >
+
+####################### SELECTOR TYPES
+
+*						universal
+h1, h2					grouping multiple elements
+.sampleclass			target all the class
+#div					target the only div
+#div h1					target the descendant h1
+#div > p				target the child
+h1 + p					Adjacent Sibling
+h1 ~ p					General Sibling
+
+####################### UNITS
+
+% 						percentage
+cm 						centimeter
+in 						inch
+mm						millimeter
+pc 						pica ( 1 pc = 12 points)
+pt 						point ( 1 pt = 1/72 inch )
+deg						degrees
+grad					grads
+rad						radians
+turn					turns
+ms 						milli-seconds
+s 						seconds
+Hz						hertz
+kHz 					kilo-hertz
+
+####################### RELATIVE MEASUREMENT
+
+em 						1 em = current font size of current element
+ex						x-height of the element's font
+gd						the grid defined by 'layout-grid'
+px						pixel of the viewing device
+rem 					the font size of root element
+vh						the viewport's height
+vw 						the viewport's width
+vm						the viewport's height or width, whichever is smaller of the two
+
+####################### COLORS
+
+red, dark red			color name
+rgb(x,y,z)				red = rgb(255,0,0)
+rgba(x,y,z, alpha)		red = rgba(255,0,0,0)
+rgb(x%,y%,z%)  			red = rgb(100%,0,0)
+#rrggbb					red = #ff0000 (or shorthand = #f00)
+
+####################### USER INTERFACE
+
+cursor : auto | crosshair | default | pointer | move | text | wait | help (url)
+icon : 	auto | inherit (url)
+nav-index : auto | inherit (number)
+resize : none | both | horizontal | vertical | inherit

@@ -1,0 +1,28 @@
+#!/bin/bash
+##### help #####
+clear;
+echo "I can use : crunch, medusa, nmap.";
+echo "";
+echo "use in normal way : [langname][memo]" 
+echo "or just : [langname] to list all memos about [langname]";
+echo "";
+
+echo "-----functions list : " ;
+ls -m functions/ ;
+echo "";
+
+echo "crunch :	interactive character mix";
+echo "delmemo : 	delete a memo about a language" ;
+echo "delprog : 	delete all memos of a language" ;
+echo "help : 		this is help" ;
+echo "hello: 		misc";
+echo "listprog : 	list all knew language";
+echo "medusa :	interactive bruteforcer";
+echo "newmemo : 	new memo about a lang";
+echo "newprog : 	new programming language";
+echo "nmap :		interactiv scanner";
+echo "wget :		interactiv wget";
+echo "";
+
+
+

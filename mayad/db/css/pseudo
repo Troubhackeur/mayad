@@ -1,0 +1,30 @@
+####################### PSEUDO-CLASS
+
+:active					an activated element
+:focus					an element while the element has focus
+:visited				a visited link
+:hover					an element when you mouse over it
+:link					an unvisited link
+:disabled 				an element while the element is disabled
+:enabled 				an element while the element is enabled
+:checked				an element (form element control) that is checked
+:lang					allow the author to specify a language to use in a specified element
+:nth-child(n)			an element that is the n-th sibling
+:nth-last-child(n)		an element that is the n-th sibling counting from the last sibling
+:first-child			an element that is the first sibling
+:last-child 			an element that is the last sibling
+:only-child				an element that is the only child
+:last-of-type			an element that is the last sibling of its type
+:first-of-type			an element that is the first sibling of its type
+:only-of-type			an element that is the only of its type
+:empty 					an element that has no children
+:root					root element within the document
+:not(x)					an element not represented by the argument'x'
+:target					a target element as specified by a target in a URL
+
+####################### PSEUDO-ELEMENT
+
+::first-letter			add a special style to the first letter of a text
+::first-line			adds special style to the first line of a text
+::before				inserts some content before an element
+::after					inserts some content after an element

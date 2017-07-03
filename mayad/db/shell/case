@@ -1,0 +1,9 @@
+### CASE
+
+case expression in
+		  motif_1 ) cmd_1 ;;
+	motif_2 | motif_3 ) cmd_2 ;;
+		        * ) cmd_3 ;;
+esac
+
+si l'expression peut correspondre au motif_1, execute cmd_1, sinon si elle correspond au motif_2 ou motif_3, execute cmd_2, sinon execute cmd_3.

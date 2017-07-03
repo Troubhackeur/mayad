@@ -1,0 +1,6 @@
+### open file
+
+open(FILE,"file.txt")
+        || die("fail file.txt: $!");
+my $file = <FILE>;
+

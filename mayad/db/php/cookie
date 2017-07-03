@@ -1,0 +1,6 @@
+### setcookie
+/!\ a placer avant le doctype 
+(variables predefinie contre failles XSS)
+
+setcookie('pseudo', 'Jean', time() + 24*3600, null,null, false, true);
+// crŽŽ ou Žcrase le cookie $_COOKIE['pseudo'] qui renvoi "Jean", et qui se supprime dans 1 jour.

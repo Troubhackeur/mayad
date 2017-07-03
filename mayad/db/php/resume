@@ -1,0 +1,87 @@
+PHP
+type:interprété
+
+/!\ doit être utilisé dans les variables <?php et ?>
+### type de variables
+- string 	chaine
+- int 		nombre entier
+- float		ex : 3.1416
+- bool		booléen
+- null		variable vide
+
+###
+
+$variable = 1;			déclaration de variable
+// 				commentaire sur une ligne
+$variable = strlen($phrase);	variable contient le nombre de caractères de $phrase
+$ma_variable = str_replace('b', 'p', 'bim bam boum');
+str_shuffle($chaine); 		melange la chaine
+strtolower($chaine);		passe la chaine en minuscule
+htmlspecialchars($variable); 	affiche les balises HTML
+session_start() 		démarre une session ( a placer avant le doctype )
+session_destroy()		ferme une session
+
+### superglobales
+
+print_r($_SERVER)		affiche les valeurs renvoyées par le serveur
+$_SERVER['REMOTE_ADDR']		adresse IP du client
+$_ENV				variables d'environnement toujours données par le serveur
+$_SESSION			variables de sessions
+$_COOKIE			variables des cookies
+$_GET 				variables envoyées par URL
+$_POST				variables envoyées par formulaire
+$_FILES				contient la liste des variables d'un fichier
+
+### opérateurs
+
++ 	Addition- 	Soustraction* 	Multiplication/ 	Division
+
+### comparaison
+
+== 	Est égal à> 	Est supérieur à< 	Est inférieur à>=	Est supérieur ou égal à<=	Est inférieur ou égal à!=	Est différent de
+
+###
+
+AND     &&      et
+OR      ||      ou
+
+### $_GET /!\ ne pas faire confiance aux données
+
+<a href="bonjour.php?nom=Dupont&amp;prenom=Jean">liean</a>
+
+### isset 
+
+if (isset($_GET['prenom']) AND isset($_GET['nom'])) // les variables existent{
+	// cmd}
+
+### int
+
+$variable = (int) $variable ;
+renvoi un entier équivalent, ou 0 si $variable n'est pas un entier.
+
+### formulaire post exemple 
+
+<form action="cible.php" method="post">	<p>		<input type="text" name="prenom" />
+		<textarea name="message" rows="8" cols="45">tex</textarea>
+		<select name="choix">			<option value="choix1">Choix 1</option>			<option value="choix2">Choix 2</option>		</select>		<input type="submit" value="Valider" />		<input type="checkbox" name="case" id="case" checked="checked"/> <label for="case">case</label>
+		<input type="radio" name="frites" value="oui" id="oui" checked="checked" /> <label for="oui">Oui</label>		<input type="radio" name="frites" value="non" id="non" /> <label for="non">Non</label>
+		<input type="hidden" name="cache" value="cache" />
+	</p></form>
+
+### formulaire envoi de fichier exemple
+
+<form action="cible_envoi.php" method="post"enctype="multipart/form-data"><p>Formulaire d'envoi de fichier :<br /><input type="file" name="monfichier" /><br /><input type="submit" value="Envoyer le fichier" /></p></form>
+
+### renseignements sur le fichier envoyé
+
+$_FILES['monfichier']['name']		nom du fichier
+$_FILES['monfichier']['type'] 		type de fichier (image/gif)
+$_FILES['monfichier']['size'] 		taille du fichier en octet
+$_FILES['monfichier']['tmp_name']	nom temporaire du fichier (géré par php)
+$_FILES['monfichier']['error'] 		contient 0 si pas d'erreur
+
+if (isset($_FILES['monfichier']) AND $_FILES['monfichier']['error'] == 0){
+	// s'il n'y a pas d'erreur, le fichier a été envoyé
+}
+
+

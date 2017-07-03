@@ -1,0 +1,9 @@
+#!/bin/bash
+### launch crunch
+clear;
+
+### setup
+
+### start
+./bibliperl/icrunch.pl
+	

@@ -1,0 +1,12 @@
+#### Connexion au serveur
+
+if(!mysql_connect('localhost','root','pw'))
+{
+ Echo'Impossible';
+ exit();
+} else{
+ Echo'OK';
+}
+
+
+

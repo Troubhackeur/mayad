@@ -1,0 +1,6 @@
+WHILE
+# répète les commandes tant que vrai
+
+while cmd1 ; do
+	# cmd
+done

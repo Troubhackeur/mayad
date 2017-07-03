@@ -1,0 +1,2 @@
+### if
+if ($age <= 12 AND $sexe == "1"){echo "Salut gamin !";}

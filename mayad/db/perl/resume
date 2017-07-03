@@ -1,0 +1,430 @@
+PERL
+type : interpr√©t√©
+shebang : #!/usr/bin/perl
+
+
+Caractéristiques générales
+
+    Il s'agit d'un langage né vers 1986, dont la syntaxe générale, notamment les structures de programme, est proche du C. Il se veut proche du langage naturel, et notamment utilise beaucoup la notion de contexte.
+    Le source est complètement analysé et compilé dans un format interne avant d'être exécuté (mais la forme compilée n'est pas conservée en standard)
+    Les identificateurs commencent par une lettre ou un caractère souligné et peuvent aussi contenir des chiffres et des soulignés.
+    La casse est distinguée : jour, JOUR et Jour sont 3 identificateurs différents.
+    Les fonctions prédéfinies peuvent au choix être appelées avec ou sans parenthèses print "Bonjour" , "à tous !\n"; print ("Bonjour", "à tous !", "\n");
+    Appel d'un fichier exécutable contenant un source Perl.
+    En première ligne figure habituellement l'interpréteur du langage, le système insère alors le code nécessaire pour exécuter le script en tant que commande shell.
+
+    #!/usr/bin/perl -w
+    # Le modificateur -w facultatif permet de générer des diagnostics
+    # script hello.pl, à lancer par # ./hello.pl 
+    # pour attribuer à tous le droit de l'exécuter : chmod +x hello.pl
+    print "Bonjour tout le monde\n";
+
+    Ou appel directement en ligne de commande
+
+     perl -e 'print "Bonjour tout le monde\n";'
+
+    Pas de déclaration, et les entrées-sorties sont très simplifiées
+
+    #!/usr/bin/perl -w
+     print "Quel est votre prénom ? ";
+     # <STDIN> symbolise l'entrée standard
+     $prenom = <STDIN>;
+     print "Bonjour $prenom, donnez un nombre : ";
+     # L'entrée standard peut être abrégée avec l'opérateur "diamant" <>
+     $nb = <>;
+     print " Vous avez choisi $nb \n";
+     
+
+Structures de données
+Il y a 5 sortes de variables, dont le statut est différenciable grâce à un symbole préfixé différent.
+
+type de variable 	préfixe
+scalaire 	$
+tableau (liste) 	@
+associative (hachage) 	%
+fonction (routine)) 	&
+fichier (handle) 	sans
+
+    Les variables scalaires sont simples, les autres sont des types structurés à l'aide de variables scalaires.
+    Les listes (ou tableaux) sont indexés par des nombres, en commençant par l'indice 0.
+    Les hachages (ou tableaux associatifs) sont indexés par des chaînes.
+    Mais attention, comme tous les éléments des types structurés sont des scalaires, ils sont toujours préfixés par le symbole $. 
+
+Variables scalaires
+
+    Identificateurs précédées du symbole $.
+    Les variables scalaires peuvent être des nombres (entiers, flottants), des chaînes (ou des références de fichier)
+    Le variables n'ont pas de type. Elles sont interprétées comme chaîne , nombre ou booléen suivant leur affectation ou le contexte. En général, la conversion entre chaîne et nombre est transparente.
+    Par exemple :
+
+    $a = '24' ;  # $a est une chaîne
+    print $a + 1, "\n"; #affiche 25 ! attention pas de " " 
+
+    Il n'y a pas de variable de type booléen. Mais en revanche une valeur scalaire peut être interprétée comme la valeur booléenne vraie (TRUE) si ce n'est pas une chaîne vide ou le nombre 0 ou la chaîne "0".
+
+    $x= 0.75;
+    $n= 123;
+    $y= 1.6e-19;
+    $octal= 015; #caractère retour-chariot 
+    $hexa = 0xff; # vaut 255
+    $a=200; $b=350 ; $s= $a + $b;
+
+    Les chaînes sont délimitées soit par " " soit par ' '.
+    Dans le cas des guillemets, les variables incluses sont interprétées (on dit interpolées dans le jargon Unix) et remplacées par leur valeur.
+
+    $monNom ="Jean"; 
+    $salut = "Bonjour $monNom" ;
+    print $salut;    affiche bien Bonjour Jean !
+    $s = 'Bonjour $monNom !' ;            
+    print $s;    affiche par contre Bonjour $s 
+
+    $a=200; $b=350 ; 
+    # affiche $a + $b = 200 + 350 = 550
+    print '$a + $b', " = $a + $b = ",  $a + $b , "\n";
+
+    Utilisation de chaînes multilignes
+    On peut définir des chaînes sur plusieurs lignes
+    On utilise pour cela un identificateur (ici ESSAI) qui sert de délimitateur.
+
+    #!/usr/bin/perl 
+    $texte = <<"ESSAI"; 
+    Bonjour a tous ! 
+    ceci est un essai 
+    de texte multiligne 
+    ESSAI 
+    print $texte;
+
+    Ceci est très utilisé pour générer du code HTML à renvoyer au client Web
+
+    print <<"marqueur";
+    <body>
+    <h1>Voici un site WEB sur
+    <a href="http://www.ac-creteil.fr/infolyc/linux/formation">linux</a>
+    </h1>
+    </body>
+    marqueur
+
+    Variables spéciales prédéfinies
+        $_
+        Il s'agit d'un argument par défaut, déterminé par l'interpréteur en fonction du contexte.
+        En situation de lecture clavier ou fichier, $_ fait référence à la chaîne saisie.
+        En situation de recherche suivant un motif, $_ fera référence à ce motif.
+        $$ 
+
+    La variable standard entrée
+    $ligne=<STDIN> stipule de lire une ligne sur l'entrée standard jusqu'au caractère de validation \n, et l'affecte à la variable $ligne, y compris \n
+
+    $ligne = <STDIN>;
+    chop($ligne);
+    print "La ligne saisie est : $ligne " ;
+
+    <STDIN> en l'absence d'affectation explicite, c'est la variable $_ qui reçoit la ligne entrée.
+
+    print "Pour sortir de la boucle Ctrl-C\n";
+    $i=0 ; # compteur de boucle
+    while <STDIN> {
+    chop($_); i++ ;
+    print "La ligne $i est : $_ \n" ;
+    }
+     
+
+    Simulation de booléen
+    Il n'y a pas de variable de type booléen, mais on peut facilement utiliser à la place une variable numérique. En effet toute expression en situation de test (conditionnelle, boucle) valant 0 ou "0" ou undefined est considérée comme fausse, toute autre valeur est considéré comme vraie !
+
+    $trouve=0  # trouve est fausse
+    while (!$trouve) { # !$trouve = 1 
+     if (....) {
+     trouve = 1 ; # trouve devient vraie 
+     }
+    } 
+
+Les listes ou tableaux
+
+    Ce sont des ensembles ordonnés et indicées de scalaires. Les éléments d'une même liste peuvent être de types quelconques (nombre ou chaines)
+    Les identificateurs des listes sont précédés du symbole @, mais les éléments sont notés avec $, car ce sont des valeurs scalaires
+    Ils sont dynamiquement alloués, donc de dimension variable et leur nature peut être diverse : nombre, chaines, variable, liste ...
+    Pour créer une liste on peut :
+        affecter directement une liste de valeur séparées par des virgules, en extension (énumérée) ou indiqué par des intervalles avec l'opérateur ..
+
+        @chiffre = (0,1,2,3,4,5,6,7,8,9); 
+        @alphabet = (a..z, A..Z);
+
+        inclure une liste dans une autre liste, qui peut être la même !
+
+          @alphanum = (a..z, A..Z , @chiffre);
+          @alphanum = (@alphabet , @chiffre);
+          @liste = (@liste , @chiffre);
+
+    Variables listes prédéfinies
+        @ARGV : arguments de la ligne de commande, numérotées à partir de 0 ($ARGV[0]) est donc le 1er argument passé, et pas le nom du script qui est dans la variable $0. (# shell !)
+        @INC : chemins de recherche des fichiers requis par require ou use
+        @_ : liste contenant les paramètres des routines 
+
+    Pour connaitre la liste
+        Pour afficher l'ensemble des éléments : print "@liste";
+        Pour connaitre la taille : $taille = @liste;
+        Pour connaitre l'indice du dernier élément : $i= $#liste ; 
+
+    Exemples de définition et de manipulation
+
+    @liste=(2,3,5,7);
+    print "le second élément est égal à ", $liste[1];
+
+    #la fonction qw() permet de simplifier la définition :
+    @mots=("voici", "mon","prénom"," : ", "Jean");
+    @mots= qw(voici mon prénom  : Jean);
+
+    # ajout d'un 5ème élément au tableau @liste
+    $liste[4] = 9;
+
+    # affiche le dernier élément de la liste
+    print $liste[$#liste];
+
+    # longueur de la liste @liste
+    $lon = @liste;
+
+    # ajout de l'élément suivant du tableau @liste
+    $liste[@liste] = 11;
+
+    # affectation d'un tableau par une liste de type intervalle
+    @alphabet = ("a".."z");
+    @centaine =(0..99);
+    @dix-a-vingt = @centaine[9..19];
+
+    # équivaut à @indice = ("i".."k");
+    @indice = @alphabet[8..10];
+
+    # affectation d'une liste de variables scalaires par une liste 
+    # on aura $var1="a"; $var2="b"
+    ($var1, $var2) = @alphabet;
+
+    # affichage global de la liste (les " " servent à séparer les éléments
+    print "@liste";
+
+    parcours 1 de la liste avec foreach
+    foreach $element (@liste) {
+    print "$element   ";
+    }
+
+    parcours 2 de la liste avec for 
+    # dans un contexte scalaire @liste est la longueur de la liste
+    # comme dans $lon = @liste;
+    for ($i =0 ; $i < @liste ; $i++ ) {
+    print "élément numéro $i ---> $liste[$i]\n";
+    }
+
+Listes associatives (ou hachages, dictionnaires)
+
+    Ce sont des tableaux indexés non par des indices entiers mais par des chaînes de caractères, appelées clés. Autrement dit, il s'agit d'un ensemble de couples (clé, valeur) dont le premier élément (clé) détermine le second (valeur).
+    Les identificateurs des listes associatives sont précédés du symbole %, les éléments étant des scalaires
+    Soit le hachage %tab et l'une de ses clés $cle, alors sa valeur correspondante s'obtient par $tab{$cle} (attention avec des accolades).
+    Si la clé n'existe pas, on obtient la valeur undef
+    Variables prédéfinies
+        %ENV : liste des variables d'environnement
+        %SIG : utilisé pour préciser les handlers
+        %INC : liste des fichiers qui ont été appelés par require 
+    Les opérateurs keys(), values(), each()
+    Ils s'appliquent à une liste associative et permettent respectivement d'extraire la liste des clés, la liste des valeurs, celle des couples (clé,valeur) en utilisant une boucle while.
+
+    @cles = keys(%tab);
+    @valeurs = values(%tab);
+    ($cle, $val)= each(%tab);
+
+    Exemples de définition et de manipulation
+
+        %tab = ("pi" , 3.14 , "e" , 2.72, "q", 1.6e-19);
+        $expo= "e";
+        print "La constante $expo vaut : $tab{$expo}\n";
+
+        %tab = ("jean" , 500, "toto" , 501, "stage1", 502);
+        print "La liste des clés : keys(%tab)\n";
+        print "La liste des valeurs : values(%tab)\n";
+        # modèle de boucle pour parcourir le hachage
+        while (($cle, $val)= each (%tab)) {
+          print "Le numéro de $cle est $val\n";
+        } 
+        # même résultat, en plus compliqué ..
+        foreach $cle ( keys(%tab) ) {
+          print "Le numéro de $cle est $tab{$cle}\n"
+        }
+
+Opérateurs et expressions
+Opérateurs scalaires
+
+    # de concaténation
+
+    print "salut"." jean";  # affiche "salut jean"
+
+    # puissance et affectation
+
+    $x **=3; # $x=8
+
+    # répétition d'une chaine
+
+    print "jean " x 10; #affiche "jean" 10 fois ...
+
+    # affectations multiples
+
+    $a = $b = $c = 5;
+    $d = $a +($e = 10); # $e = 10 et $d = 15
+
+    # opérateur incrémentation
+
+    $a = $b = 5;
+    $c = ++$a; # $c = $a = 6
+    $d = $b++; # $d = 5 et $b = 6
+
+    # les opérateurs chop() et chmop() chop retire le dernier caractère de la chaine et retourne ce caractère
+
+    $b= "Bonjour à tous";
+    $a = chop($b); $b = "Bonjour à tou" et $a ="s"  
+
+    chomp ne retire qu'un caractère nouvelle ligne "\n", sinon rien.
+    une instruction peut être suivi d'une expression modificatrice comme if, while ... Qq exemples /
+        La fonction defined renvoie 1 (donc "vrai") si la variable qui suit est bien définie
+        print "Erreur, nom non défini !\n" if ! (defined $nom); 
+
+Opérateurs et fonctions tableaux
+On peut utiliser la structure tableau pour accéder différemment aux éléments de début ou de fin.
+
+Comportement "pile" avec les fonctions push (empiler) et pop (dépiler)
+
+@liste =(1..3);
+push (@liste, 4 , 5);   # on peut empiler plusieurs valeurs, @liste=(1..5)
+$val = pop (@liste); # donne $val=5 et @liste=(1,2,3,4)
+
+Accès en début de liste avec les fonctions shift et unshift
+
+@liste =(1..4);
+unshift (@liste, 7);  # insére $val en élément 0, donne @liste=(7,1,2,3,4)
+$valeur = shift (@liste);  # comme ($val, @liste)=@liste, donne $val=7  et @liste=(1..4)
+
+Structures de controle
+Le vrai et le faux
+
+    En Perl, pas de type booléen. Comme toute condition est évaluée comme une chaine (les nombres sont automatiquement convertis en chaine), les valeurs logiques vrai ou faux sont obtenues selon une convention (proche du C).
+    Si cette chaine résultante est soit vide "" ou bien "0", la condition est considérée comme false.
+    Dans tous les autres cas, elle est considérée comme true 
+
+Les opérateurs de comparaison
+Opérateurs sur 	Chaînes	Nombres
+Égalité 	eq 	==
+Différent	ne 	!=
+Inférieur 	lt 	<
+Supérieur 	gt 	>
+Inférieur ou égal 	le 	<=
+Supérieur ou égal 	ge 	>=
+Comparaison 	cmp 	<= >
+	
+Opérateurs booléens 	
+et 	&&
+ou 	||
+
+L'opérateur de comparaison cmp pour les chaînes renvoie -1, 0 ou 1 selon que le premier argument est inférieur, égal ou supérieur au second.
+instructions if et unless
+Même syntaxe qu'en C ou en Java, à la différence que les accolades sont toujours obligatoires
+Exemple
+
+print "Quel est votre âge : ?"
+$age = <STDIN>;        # lecture clavier 
+chomp($age);
+if ($age < 18 ) {
+   # ou unless ($age >= 18 )
+   print("Vous êtes trop jeune pour voter!\n");
+} else {
+   print("Vous pouvez voter!\n"); 
+   $inscrits++     # compte les inscrits au vote
+}
+
+Imbrication des conditionnelles
+Elle est permise par la construction if .. elsif .. else
+
+if (test1) {
+  instruction1
+ } elsif (test2) {
+   instruction2
+ } elsif (test3) {
+   instruction3
+ } else { 
+ # les 3 tests ont échoué
+ instruction3
+ }
+
+instructions while et until
+Syntaxe
+
+while (condition) { 
+ bloc
+ }
+until (condition) { 
+ bloc
+ }
+
+Ces 2 boucles "tournent" tant que la condition demeure vraie (pour while) ou fausse (until).
+
+Exemples d'utilisation
+
+# boucle d'attente
+while (<>) {
+last;
+}
+# lecture d'une ligne entrée au clavier, puis affichage
+while ($ligne=) {
+print $ligne;
+}
+
+@nombres=(0..10);
+print @liste,"\n";
+print @lettres,"\n";print @nombres,"\n";$liste[5]=jean;print @liste,"\n";$i=0;
+
+instruction for et foreach
+
+    L'instruction for est identique à celle du C ou Java
+    Exemple
+
+    @liste=(a..z);
+    lon = @liste;
+    for ($i=0 ; $i<lon ; i++) {
+    print "Mot numéro $i ---> $liste[$i] \n";
+    }
+    $i=0;
+    foreach $mot (@liste) {
+    print "Mot numéro $i ---> $mot  \n";
+    $i++;
+    }
+
+controle de boucle : last et next
+Exemple
+
+print "La demande sera arrêtée par la saisie de la lettre \"z\" ou \"Z\" \n";
+while () {
+chop($_);
+if (($_ eq "z") || ($_ eq "Z")) { last; }
+}
+
+Les expressions régulières
+Les modèles
+
+    Ce sont des modèles ou formes à comparer aux chaines de caractères (reconnaissance de formes).
+    Elles sont très utilisées pour repérer des occurrences d'un modèle dans une chaines à traiter, et permettre ainsi d'en réaliser des traitements comme des extractions de sous-chaines.
+    L'opérateur définissant un modèle en PERL est / ... /.
+    Par défaut, l'argument auquel s'applique l'opérateur / / est la variable $_
+    Par exemple, le modèle /html/ permet de repérer tout texte contenant la séquence html
+
+     # pour déceler la chaine html dans la variable courante $_
+    if (/html/) {
+    print $_;
+    }
+    La chaine ou ligne courante $_ peut être remplacée par une variable qq,  
+    # même exemple en renommant $ligne la ligne courante
+    if ($ligne =~ /html/) {
+    print $ligne;
+    }
+
+Substitution de chaines par s/ / /
+s/expression-reg /nvelle valeur /options Cet opérateur remplace les occurrences de l'expression dans la variable courante $_
+
+if (/htm/) {
+s/htm/html ;
+print $_;
+}

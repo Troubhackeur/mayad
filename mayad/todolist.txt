@@ -1,0 +1,10 @@
+version 1.0.2
+
+- remplir de pleins de langues !
+
+gala
+
+-voir si on eut faire qu'elle se personnalise toute seule...
+
+creer fonctions :
+

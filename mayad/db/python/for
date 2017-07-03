@@ -1,0 +1,5 @@
+### FOR
+
+chaine = "bonjour"
+for lettre in chaine:
+	print(lettre)

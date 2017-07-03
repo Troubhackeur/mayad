@@ -1,0 +1,25 @@
+PYTHON
+type : interprete
+shebang :
+
+/!\ language sensible a l'indentation
+
+#######
+
+import time 			importe la bibliothèque time
+\n				saute une ligne
+chaine = 'j\'aime python'	d√©clare chaine
+chaine[1]			contient le second caract√®re de la chaine
+chaine[-1]			contient le dernier caract√®re de la chaine
+liste = ['c', 'f']		créer une liste avec liste[0] = 'c'
+del liste[0] 			supprime une variable ou une entr√©e
+variabe += 1 			incremente variable (-= , *= , /= )
+a,b = b, a 			permutation
+type(a)				retourne le type de la variable a
+print("a =", a)			retourne a = a
+variable = False 		défini un bol√©en
+annee = input("saisissez une année :")  demande une saisie
+annee = int(annee) 		change la chaine en nombre entier
+continue 			sors de la boucle
+break				casse la boucle
+global variable			rend une variable locale globale

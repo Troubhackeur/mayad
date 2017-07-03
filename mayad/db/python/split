@@ -1,0 +1,6 @@
+#### 
+
+chaine = "Bonjour a tous"
+chaine.split(" ")  
+
+renvoi un tableau type ['bonjour', 'a', 'tous']
