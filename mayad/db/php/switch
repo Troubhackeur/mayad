@@ -1,0 +1,8 @@
+## switch
+
+switch ($note){	case 0:
+		# cmd	break;	case 1: 		# cmd
+	break;
+	défaut :
+		#cmd
+}

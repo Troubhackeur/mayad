@@ -1,0 +1,16 @@
+### declaration de fonction 
+
+fonctionname_1 ()
+{
+	commandes $1 ;
+	ls $2;
+	return $variable; # termine la fonction en revoyant la variable.
+}
+
+### invocation de la fonction :
+
+fonctionname_1 valeur1 valeur2
+
+les valeurs se retrouvent dans $1 et $2, et le nombre d'arguments dans $#.
+
+

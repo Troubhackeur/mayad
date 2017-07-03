@@ -1,0 +1,25 @@
+### open, read, and close file 
+
+>>> mon_fichier = open("fichier.txt", "r")
+>>> contenu = mon_fichier.read()
+>>> print(contenu)
+C'est le contenu du fichier. Spectaculaire non ?
+>>> mon_fichier.close()
+>>>
+
+### open, write, and close file
+
+>>> mon_fichier = open("fichier.txt", "w") # Argh j'ai tout écrasé !
+>>> mon_fichier.write("Premier test d'écriture dans un fichier via Python")
+>>> mon_fichier.close()
+>>>
+
+### methode with
+
+>>> with open('fichier.txt', 'r') as mon_fichier:
+... texte = mon_fichier.read()
+...
+>>>
+
+si le fichier est fermé, mon_fichier.closed vaudra True. il est inutile de fermer le fichier a la fin.
+syntaxe à préférer.

@@ -1,0 +1,6 @@
+int a = 1, b = 15;
+while (a < b)
+{
+	System.out.println("coucou " +a+ " fois !!");
+	a++;
+}

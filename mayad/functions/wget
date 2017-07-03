@@ -1,0 +1,9 @@
+#!/bin/bash
+### launch scanner
+clear;
+
+### setup
+
+### start
+./bibliperl/iwget.pl
+	

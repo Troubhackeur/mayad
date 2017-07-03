@@ -1,0 +1,7 @@
+### date
+
+H Heurei Minuted Jourm MoisY Anne
+
+exemple : 
+$jour = date('d');
+$heure = date('H');

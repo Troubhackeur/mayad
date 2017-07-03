@@ -1,0 +1,19 @@
+### regex
+
+if(preg_match("#guitare#", "$chaine))
+{ // si la chaine contient guitare }
+
+#guitare#i		guitare peu importe la casse
+#guitare|piano# 	guitare ou piano
+#^Bonjour#		la cha”ne commence par Bonjour
+#fin$#			la cha”ne fini par fin
+#gr[io]s#		gris ou gros
+#[a-z]#			contient une lettre
+#[A-Z0-9]#		contient une majuscule ou un chiffre
+#bor?is#		boris ou bois
+#[0-9]+#		n'importe quel nombre d'au moins un ciffre
+#^Yaho+$#		Yahoooooo
+#^Bla(bla)*$#		Blablablablablabla
+#a{3,5}#		entre 3 et 5 "a" dans la chaine
+#a{3,}# 		3 "a" ou plus
+#Quoi \?#		cherche la chaine "Quoi ?"

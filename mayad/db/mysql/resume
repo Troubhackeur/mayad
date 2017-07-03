@@ -1,0 +1,92 @@
+MySQL
+type : interpreted
+
+#### Selection de base de donnee
+
+Mysql_select_db('db');
+ 
+#### Requetes MySQL - PHP + gestion d'erreur
+
+$requete="INSERT annonce SET code='users0004',TITRE='petites annonces'";
+$resultat=mysql_query($requete);
+$erreur1=mysql_error();
+print($erreur1);
+
+#### Creation d'une table MySQL
+
+$requete="CREATE TABLE if not exists member (uid smallint(6) primary key NOT NULL auto_increment,titre enum('Monsieur','Madame','Mademoiselle') Not null,nom varchar(25) Not Null,prenom varchar(25) Not Null)";
+$resultat=mysql_query($requete);
+
+    uid, un entier auto incremente utilise comme cle primaire.
+    titre, liste de valeurs possibles (Monsieur, Madame, Mademoiselle), null interdit
+    nom, variable texte de taille modifiable et de taille maximum de 25 caracteres, null interdit.
+    prenom, variable texte de taille modifiable et de taille maximum de 25 caracteres, null interdit.
+
+#### Suppression d'une table
+
+    $requete="DROP table if exists contenu";
+    $resultat=mysql_query($requete);
+    $erreur=mysql_error();
+    print($erreur);
+
+#### Requte d'insertion
+
+    $requete="Insert annonce(code,TITRE) Values('users0001','Maison  Vendre Pin')";
+     $resultat=mysql_query($requete);
+
+			OU
+
+    $requete="INSERT annonce SET code='users0003',titre='magasin informatique YBET'";
+     $resultat=mysql_query($requete);
+
+#### Requete de slection
+
+    $requete="SELECT * FROM member";
+    $valeur=mysql_query($requete);
+
+Remarque: cette requte renvoie les valeurs sous forme de tableau. La commande print($valeur) n'affiche pas de rsultat.
+
+#### Nombre de valeurs renvoyes
+
+    $valeur=mysql_query($requete);
+    $ligne=mysql_num_rows($valeur) ### renvoi le nb de lignes dans $valeur
+
+#### Affichage des rsultats
+
+7.2. Affichage des rsultats
+
+L'affichage des valeurs se fait gnralement par une boucle While utilisant la fonction mysql_fetch_array(). Les coordonnes du tableau sont les noms de champs.
+
+Conditions d'utilisation: la requte de slection doit au pralable tre envoye  la base de donne.
+
+Exemple d'utilisation:
+
+    $requete="select * from annonce order by 'dateinsertion' DESC";
+    $valeur=mysql_query($requete);
+    while ($tableau=mysql_fetch_array($valeur)){
+    echo$tableau['code']."-".$tableau['titre']."-<br>";
+    }
+
+#### Where
+
+    $requete="SELECT * FROM member where email='$mail'";
+    $valeur=mysql_query($requete);
+
+#### Modification des valeurs
+
+
+    $requete="UPDATE annonce SET site='dahut.be'";
+    $valeur=mysql_query($requete);
+
+#### Nombre de valeurs affectes
+
+$ligne=mysql_affected_rows($valeur);
+// $valeur est le rsultat de mysql_query($requete)
+
+#### Suppression d'entres
+
+    $requete="DELETE From utilisateur where nom='DAHUT'";
+    $valeur=mysql_query($requete);
+
+
+

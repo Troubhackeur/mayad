@@ -1,0 +1,52 @@
+####################### VIEW
+
+float : left | right | none ;
+clear : left | right | both | none ;
+display : none | inline | block | inline-block | table-caption ;
+
+height : auto | 300px | 50 % ;
+width : auto | 300px | 50 % ;
+max-height : auto | 300px | 50 % ;
+max-width : auto | 300px | 50 % ;
+min-height : none | inherit | 300px | 50 % ;
+min-width : none | inherit | 300px | 50 % ;
+margin : auto | 300px | 50 % ;
+margin-top : auto | 300px | 50 % ;
+margin-right : auto | 300px | 50 % ;
+margin-bottom : auto | 300px | 50 % ;
+margin-left : auto | 300px | 50 % ;
+padding : auto | 300px | 50 % ;
+padding-top : auto | 300px | 50 % ;
+padding-right : auto | 300px | 50 % ;
+padding-bottom : auto | 300px | 50 % ;
+padding-left : auto | 300px | 50 % ;
+marquee-direction : forward | reverse ;
+marquee-loop : infinite | 5 ;
+marquee-play-count : infinite | 5 ;
+marquee-speed : slow | normal | fast ;
+marquee-style : scroll | slide | alternate ;
+overflow : visible | hidden | scroll | auto | no-display | no-content ;
+overflow-style : auto | marquee-line | marquee-block ;
+overflow-x | overflow-y : visible | hidden | scroll | auto | no-display | no-content ;
+rotation : 180 ;
+rotation-point : x, y ;
+visibility : visible | hidden | collapse ;
+
+####################### BACKGROUND
+
+background-attachment : scroll | fixed ;
+background-break : bouding-box | each-box | continuous ;
+background-clip : 20% border-box | padding-box | content-box | no-clip ;
+background-color : {color} | transparent ;
+background-image : url('img/exemple.png') | none ;
+background-origin : border-box | padding-box | content-box ;
+background-position : top left | center left | bottom right ;
+background-repeat : repeat | repeat-x | repeat-y | no-repeat ;
+background-size : 50% | auto | cover | contain ;
+
+####################### BORDER
+
+border-top-left-radius : 5px ;
+border : 1px solid black ;
+box-shadow : 5px 5px 5px 5px black ;
+border-style : none | hidden | dotted | dashed | solid | double | groove | ridge | inset | outset ;

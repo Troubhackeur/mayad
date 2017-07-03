@@ -1,0 +1,5 @@
+FOR
+for variable in $(seq 1 254); do 
+  ping $variable
+done
+

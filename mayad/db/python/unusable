@@ -1,0 +1,10 @@
+######
+mots inutilisable en nom de variables :
+
+and 	del 	from 	none 		true
+as	elif	global	nonlocal	try
+assret	else	if	not		while	
+break	except	import	or		whith
+class	false	in	pass		yield
+continue	finally	is		raise
+def	for	lambda	return

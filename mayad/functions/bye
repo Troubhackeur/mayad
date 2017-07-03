@@ -1,0 +1,5 @@
+#!/bin/bash
+#STOP ALL
+clear;
+echo "bye";
+killall ini.sh

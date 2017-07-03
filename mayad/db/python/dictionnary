@@ -1,0 +1,27 @@
+------- dictionnaires ------
+
+placard = {"chemise":3, "pantalon":6}
+placard.pop("chemise")
+
+pop supprime la clŽ et la valeur associŽe en renvoyant cette valeur.
+
+-------
+
+>>> fruits = {"pommes":21, "melons":3, "poires":31}
+>>> for cle in fruits:
+... print(cle)
+...
+melons
+poires
+pommes
+
+-------
+
+>>> fruits = {"pommes":21, "melons":3, "poires":31}
+>>> for valeur in fruits.values():
+... print(valeur)
+...
+33
+1
+21
+>>>

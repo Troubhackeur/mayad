@@ -1,0 +1,5 @@
+#!/bin/bash
+#STOP ALL
+clear;
+echo "Hello, I'm your personnal assistant"; 
+echo "type help if you want too see more...";

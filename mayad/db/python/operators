@@ -1,0 +1,9 @@
+######
+oprateurs de comparaisons
+
+< 	strictement infrieur
+>	strictement suprieur
+<= 	infrieur ou gal
+>= 	suprieur ou gal
+== 	egal a
+!= 	different de

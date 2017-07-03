@@ -1,0 +1,10 @@
+## ifelse
+
+$age = 8;if ($age <= 12){
+	# cmd}
+elseif ($age <=18)
+{
+	# cmd
+}
+else {
+	# cmd}

@@ -1,0 +1,6 @@
+RUBY
+type : interprété
+? shebang : #!/usr/bin/ruby
+
+puts "Hello world" // print "hello world"
+

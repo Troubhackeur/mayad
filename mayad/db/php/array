@@ -1,0 +1,27 @@
+### numeric array
+
+$varia = array ('alpha', 'beta', 'gamma' ); // cree un tableau a 3 entrée
+
+$varia[0] = 'zeta'; // change le contenu du tableau s'il existe$varia[1] = 'eta'; // ou créé le tableau case par case
+$varia[] = 'epsilon'; // cree le tableau ou l'entrée suivante.
+
+echo $varia[0]; // retourne la valeur de l'entrée correspondante
+
+### string array 
+exemple : 
+
+$coordonnees = array (	'prenom' => 'François',	'nom' => 'Dupont',	'adresse' => '3 Rue du Paradis',	'ville' => 'Marseille');
+echo $coordonees[ville]; // renvoi Marseille
+
+
+### array_key_exists
+
+if (array_key_exists('pays', $coordonnees)){echo 'La clé "pays" se trouve dans les coordonnées !';}
+
+### in_array
+
+if (in_array('Myrtille', $fruits)){echo 'La valeur "Myrtille" se trouve dans les fruits !';}
+
+### array_search
+
+$position = array_search('Fraise', $fruits);echo '"Fraise" se trouve en position ' . $position . '<br />';

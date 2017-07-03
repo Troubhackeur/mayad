@@ -1,0 +1,7 @@
+UNTIL
+# repete les commandes tant que faux
+
+until [ $word -eq $commande ; do
+        # cmd
+done
+

@@ -1,0 +1,7 @@
+### while
+
+my $weel=1;
+while ($weel eq "1")
+{
+	# cmd
+}

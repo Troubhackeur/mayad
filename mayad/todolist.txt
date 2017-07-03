@@ -1,0 +1,12 @@
+Mayad
+version 1.0.2
+
+cpp
+java
+jquery
+ruby
+
+creer fonctions :
+
+
+misc : interagir avec wiki

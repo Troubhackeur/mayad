@@ -1,0 +1,40 @@
+#!/bin/bash
+### newprog
+clear;
+echo "New language";
+echo "-----------------------";
+
+### setup
+bool=0;
+
+### start
+echo "Language name : (lowercase = better)";
+read nom;
+mkdir db/`echo $nom` ;
+echo "folder db/"${nom}" created.";
+echo $nom > tmp/newlang.tmp;
+while [ $bool = 0 ] ; do
+	echo "Quel est le type de language :"
+	echo "1) language balise"
+	echo "2) language interprete"
+	echo "3) language compile"
+	read n
+	        case $n in
+		############ BALISE ##########
+	        1) echo "Pour les languages de type balise, seul un index est disponible";
+			./bibliperl/learnbalise.pl
+			bool=1;
+	                ;;
+		############ interprete ######
+	        2) echo "Pour les languages de type interprete, une serie de question va vous etre pose.";
+			./bibliperl/learninterprete.pl
+			bool=1;
+	                ;;
+		############ compile #########
+	        3) echo "Pour les languages de type compile, une serie de question va vous etre pose."
+			bool=1;
+			./bibliperl/learncompile.pl
+	                ;;
+	        *) echo "option invalide" ;;
+	esac
+done

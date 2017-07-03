@@ -1,0 +1,6 @@
+#### 
+
+liste=['bonjour', 'a', 'tous']
+" ".join(liste)
+
+renvoi la chaine 'Bonjour a tous'

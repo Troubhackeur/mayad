@@ -1,0 +1,61 @@
+JAVA
+type : compilate
+
+##################### RESUME
+
+Class
+variablesMultiWord
+
+// comments
+/* multi-line
+comment */
+System.out.print("Hello World !\n");
+System.out.println("My name is");
+
+##################### MODULES
+
+import java.util.Scanner;
+
+##################### VARIABLES
+
+byte variable;         1 octet 
+variable = 26;        can contain integers between -128 and +127.
+short variable;        2 octets ; integers between -32768 and +32767.
+int variable;          4 octets ; integers between -2x10^9 and 2x10^9.
+long variable;         8 octets ; integers between -9x10^18 and 9x10^18.
+float pi;              4 octets ; floating number.
+pi = 3.141592653f;
+double pi;             8 octets ; idem.
+char caractere;        can contain only one character.
+caractere = 'A';       
+boolean question;      can contain only true or false.
+question = true;
+String string = "hello world";  String is not a variable type : it's an object.
+
+###################### INCREMENT
+numb1++; 
+++numb1;
+numb1 -= 1;
+
+###################### CAST
+
+int i = 123;
+float j = (float)i;
+
+int i = 123;
+double j = (double)i;
+
+##################### INPUT
+
+Scanner sc = new Scanner(System.in);
+System.out.println("Veuillez saisir un mot :");
+String str = sc.nextLine();
+System.out.println("Vous avez saisi : " + str);
+
+##################### TABLE
+
+int tableauEntier[] = {0,1,2,3,4,5,6,7,8,9};
+double tableauDouble[] = {0.0,1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0};
+char tableauCaractere[] = {'a','b','c','d','e','f','g'};
+String tableauChaine[] = {"chaine1", "chaine2", "chaine3" , "chaine4"};
+int premiersNombres[][] = { {0,2,4,6,8},{1,3,5,7,9} };

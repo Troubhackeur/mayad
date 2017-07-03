@@ -1,0 +1,11 @@
+### structure ternaire
+
+$age = 24;$majeur = ($age >= 18) ? true : false;
+// cree le boolŽen $majeur selon $age
+
+### print_re
+exemple :
+
+$coordonnees = array (	'prenom' => 'Franois',	'nom' => 'Dupont',	'adresse' => '3 Rue du Paradis',	'ville' => 'Marseille');echo '<pre>'; // balise necessaire pour un meilleur affichageprint_r($coordonnees);echo '</pre>';
+
+

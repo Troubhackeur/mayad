@@ -1,0 +1,28 @@
+####################### FONT
+
+font-family : Helvetica, Arial, "Sans serif" ;
+font-size :  small | medium | large | x-large | 15pt | 5px | 3% ;
+font-stretch : normal | wider | narrower | ultra-condensed | extra-condensed | condensed | semi-condensed | semi-expanded | expanded | extra-expanded | ultra-expanded | inherit
+font-style : normal | italic | oblique | inherit ;
+font-variant : normal | small-caps | inherit ;
+font-wieght : normal | bold | bolder | lighter | 100 | 900 | inherit ;
+
+####################### TEXT
+
+direction : ltr | rtl | inherit ;
+hanging-punctuation : none | [ start | end | end-edge ] ;
+letter-spacing : normal | 5px | 1% ;
+text-align : start | end | left | right | center | justify ;
+text-decoration : none | underline | overline | line-through | blink ;
+text-indent : 5px | 3% ;
+text-justify : auto | inter-word | inter-ideograph | inter-cluster | distribute | kashida | tibetan ;
+text-outline : none | {color} 5px ;
+text-shadow : 5px black ;
+text-wrap : normal | unrestricted | none | suppress ;
+white-space : normal | pre | nowrap | pre-wrap | pre-line ;
+white-space-collapse : preserve | collapse | preserve-breaks | discard ;
+word-break : normal | keep-all | loose | break-strict | break-all ;
+word-spacing : normal | 5px | 3% ;
+word-wrap : normal | break-word ;
+
+

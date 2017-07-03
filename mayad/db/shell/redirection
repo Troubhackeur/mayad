@@ -1,0 +1,6 @@
+commande < fichier		entre standard depuis fichier
+commande > fichier 		sortie standard vers fichier
+commande >> fichier 		sortie standard ajoute en fin de fichier
+commande 2> fichier 		sortie d'erreur vers fichier
+commande 2>> fichier 		sortie d'erreur ajoute en fin de fichier
+commande 2>$1 			sortie d'erreur identique a sortie standard

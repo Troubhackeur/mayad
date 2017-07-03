@@ -1,0 +1,6 @@
+######
+fonctions :
+meme si aucun paramètre, parentheses obligatoires
+
+def nom_fonction(param1, param2, param3):
+	#instructions
