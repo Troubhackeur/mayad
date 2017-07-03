@@ -3,4 +3,4 @@
 clear;
 echo "Language list";
 echo "-----------------------";
-ls -m db/ ;
+ls -1 db/ ;
